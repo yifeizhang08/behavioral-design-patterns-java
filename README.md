@@ -37,7 +37,7 @@ _Findings:_
 
 At a high level, both the Observer and Command patterns allow an action in one object (such as a state change or method call) to trigger behavior in another object, while keeping the two objects loosely coupled and unaware of each other’s implementation.
 
-From a performance perspective, the time to notify observers with the Observer pattern scales linerly with the number of observers, O(_n_) execution fo _n_ observers. The code demonstrates how the time to notify 1 observer vs 1000 observers increases by about 5x. This performance consideration could be significant if you are designing a system with many dependents. In this case, encapsulating operations via the Command Pattern could be a better solution, as the excution time for a single Command is O(1) and this pattern allows for operations to be queued (delayed execution) and undine/redone.
+From a performance perspective, the time to notify observers with the Observer pattern scales linearly with the number of observers, O(_n_) execution for _n_ observers. The code demonstrates how the time to notify 1 observer vs 1000 observers increases by about 5x. This performance consideration could be significant if you are designing a system with many dependents. In this case, encapsulating operations via the Command Pattern could be a better solution, as the execution time for a single Command is O(1) and this pattern allows for operations to be queued (delayed execution) and undine/redone.
 
 _Example:_
 
