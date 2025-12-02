@@ -54,21 +54,23 @@ From a performance perspective, the time to notify observers with the Observer p
 
 ---
 
-### **2. Strategy vs State**: Encapsulation Comparison
+### **2. Strategy vs State vs Template**: Encapsulation Comparison
 
-Both the Strategy and State patterns focus on encapsulating a certain set of behaviors as objects, and allowing these behaviors to be swapped at runtime.
+The Strategy, State, and Template patterns focus on encapsulating a certain set of behaviors as objects, and allowing these behaviors to be swapped at runtime.
 
-The **Strategy Pattern** encapsulates an interchangeable family of algorithms by first defining a common interface that these algorithms must implement. This allows the Client to select which algorithm to use at runtime, offering furture flexibility and extensibility as algorithms can be added or modified without affecting existing code.
+The **Strategy Pattern** encapsulates an interchangeable family of algorithms by first defining a common interface that these algorithms must implement. This allows the Client to select which algorithm to use at runtime, offering future flexibility and extensibility as algorithms can be added or modified without affecting existing code.
 
 The **State Pattern** encapsulates state-dependent behavior, meaning changes in object behavior happen automatically in response to state changes, making objects appear to have changed classes.
+
+The **Template Pattern** allows for only partial encapsulation of an algorithm by defining the structure of an algorithm as an abstract class and defferring the implementation of certain steps to subclasses.
 
 \_\_
 
 _Example:_
 
-The code demonstrating how these patterns compare form an _**encapsulation**_ perspective can be found here: [`patternComparison/strategyVsState/`](src/main/java/patternComparison/strategyVsState).
+The code demonstrating how these patterns compare form an _**encapsulation**_ perspective can be found here: [`patternComparison/strategyVsStateVsTemplate/`](src/main/java/patternComparison/strategyVsStateVsTemplate).
 
-The demo can be run via the file: [StrategyVsState.java](src/main/java/patternComparison/strategyVsState/StrategyVsState.java)
+The demo can be run via the file: [StrategyVsStateVsTemplate.java](src/main/java/patternComparison/strategyVsStateVsTemplate/StrategyVsStateVsTemplate.java)
 
 \_\_
 
@@ -76,6 +78,10 @@ _Findings:_
 
 Both Strategy and State patterns favor **_Composition over Inheritance_** through behavior encapsulation, however the decision on which pattern to use has a lot to do with the use-case.
 
-The Strategy Pattern could be more appropiate when you select an algorithm at runtime, and the context that is delegating to this algorithm object does not fundamentally change. Examples might include selecting between different file compression or sorting algorithms.
+The Strategy Pattern could be more appropriate when you select an algorithm at runtime, and the context that is delegating to this algorithm object does not fundamentally change. Examples might include selecting between different file compression or sorting algorithms.
 
 The State Pattern could prove more useful when the context object is changing conditions frequently, and certain behaviors are dependent on that state. In this case, you likely want the object to manage its own state transitions (as opposed to interventions from the client). Examples might include order processing or a document workflow.
+
+If an algorithm always follows the same order of steps, but these steps may vary in implementation or occasionally be skipped all together, the Template Method could be a good choice, as it offers the simplest implementation of the three patterns. An example might be a file processing system, where the file is processed in the same order each time, but certain steps my vary depending on the file type.
+
+While all patterns allow for operations to be encapsulated, the State and Strategy allow for encapsulation of the entire algorithm, meaning the steps and implementation of these algorithms can be as similar or dissimilar as desired. This offered a greater degree of flexibility over the Template Method.
