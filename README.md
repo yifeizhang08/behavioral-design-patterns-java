@@ -24,7 +24,7 @@ loose coupling, extensibility, and performance.
 
 This repo contains code examples to support the following comparisons:
 
-**1. Observer vs Command**: Decoupling Comparison
+###**1. Observer vs Command**: Decoupling Comparison
 
 Both the Observer and Command pattern emphasize _**loose coupling**_ between system components, however the do so in different way.
 
