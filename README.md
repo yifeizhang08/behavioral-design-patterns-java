@@ -24,7 +24,11 @@ loose coupling, extensibility, and performance.
 
 This repo contains code examples to support the following comparisons:
 
+---
+
 ### **1. Observer vs Command**: Decoupling Comparison
+
+\_\_
 
 Both the Observer and Command pattern emphasize _**loose coupling**_ between system components, however the do so in different way.
 
@@ -32,12 +36,7 @@ The **Observer pattern**
 _**decouples subjects and observers dynamically**_ through a one-to-many relationship between the subject object and its dependent (observer) objects. Subjects maintain a collection of reference to dependents (which all adhere to a common Observer interface, allowing the Subject to remain unaware of the concrete details of their observers), and when the subject changes state, its dependents are notified.
 
 The **Command Pattern** focuses on encapsulating a request as an object, thus _**decoupling the sender of a request from the object that executes that request**_ and allowing for features such as undo or deferred execution.
-
-_Findings:_
-
-At a high level, both the Observer and Command patterns allow an action in one object (such as a state change or method call) to trigger behavior in another object, while keeping the two objects loosely coupled and unaware of each other’s implementation.
-
-From a performance perspective, the time to notify observers with the Observer pattern scales linearly with the number of observers, O(_n_) execution for _n_ observers. The code demonstrates how the time to notify 1 observer vs 1000 observers increases by about 5x. This performance consideration could be significant if you are designing a system with many dependents. In this case, encapsulating operations via the Command Pattern could be a better solution, as the execution time for a single Command is O(1) and this pattern allows for operations to be queued (delayed execution) and undine/redone.
+\_\_
 
 _Example:_
 
@@ -45,13 +44,33 @@ The code demonstrating how these patterns compare form a _**decoupling and perfo
 
 The demo can be run via the file: [ObserverVsCommand.java](src/main/java/patternComparison/observerVsCommand/src/main/java/patternComparison/observerVsCommand/ObserverVsCommand.java)
 
-### **1. Strategy vs State**: Encapsulation Comparison
+\_\_
+
+_Findings:_
+
+At a high level, both the Observer and Command patterns allow an action in one object (such as a state change or method call) to trigger behavior in another object, while keeping the two objects loosely coupled and unaware of each other’s implementation.
+
+From a performance perspective, the time to notify observers with the Observer pattern scales linearly with the number of observers, O(_n_) execution for _n_ observers. The code demonstrates how the time to notify 1 observer vs 1000 observers increases by about 5x. This performance consideration could be significant if you are designing a system with many dependents. In this case, encapsulating operations via the Command Pattern could be a better solution, as the execution time for a single Command is O(1) and this pattern allows for operations to be queued (delayed execution) and undine/redone.
+
+---
+
+### **2. Strategy vs State**: Encapsulation Comparison
 
 Both the Strategy and State patterns focus on encapsulating a certain set of behaviors as objects, and allowing these behaviors to be swapped at runtime.
 
 The **Strategy Pattern** encapsulates an interchangeable family of algorithms by first defining a common interface that these algorithms must implement. This allows the Client to select which algorithm to use at runtime, offering furture flexibility and extensibility as algorithms can be added or modified without affecting existing code.
 
 The **State Pattern** encapsulates state-dependent behavior, meaning changes in object behavior happen automatically in response to state changes, making objects appear to have changed classes.
+
+\_\_
+
+_Example:_
+
+The code demonstrating how these patterns compare form an _**encapsulation**_ perspective can be found here: [`patternComparison/strategyVsState/`](src/main/java/patternComparison/strategyVsState).
+
+The demo can be run via the file: [StrategyVsState.java](src/main/java/patternComparison/strategyVsState/StrategyVsState.java)
+
+\_\_
 
 _Findings:_
 
@@ -60,9 +79,3 @@ Both Strategy and State patterns favor **_Composition over Inheritance_** throug
 The Strategy Pattern could be more appropiate when you select an algorithm at runtime, and the context that is delegating to this algorithm object does not fundamentally change. Examples might include selecting between different file compression or sorting algorithms.
 
 The State Pattern could prove more useful when the context object is changing conditions frequently, and certain behaviors are dependent on that state. In this case, you likely want the object to manage its own state transitions (as opposed to interventions from the client). Examples might include order processing or a document workflow.
-
-_Example:_
-
-The code demonstrating how these patterns compare form an _**encapsulation**_ perspective can be found here: [`patternComparison/strategyVsState/`](src/main/java/patternComparison/strategyVsState).
-
-The demo can be run via the file: [StrategyVsState.java](src/main/java/patternComparison/strategyVsState/StrategyVsState.java)
