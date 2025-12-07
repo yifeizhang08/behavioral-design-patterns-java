@@ -3,7 +3,7 @@ package patternComparison.chainOfResponsibilityVsMediator;
 import patternComparison.chainOfResponsibilityVsMediator.mediator.*;
 import patternComparison.chainOfResponsibilityVsMediator.chainOfResponsibility.*;
 
-public class chainOfResponsibilityVsMediator {
+public class ChainOfResponsibilityVsMediator {
     public static void demonstrateMediator() {
         System.out.println("=== MEDIATOR PATTERN: Centralized Communication ===\n");
         System.out.println("--- One 'ChatRoomMediator' object handles all communication between 'ChatUser' components ---");

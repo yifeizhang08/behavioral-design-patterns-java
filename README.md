@@ -14,7 +14,11 @@ This project demonstrates all **11 Behavioral Design Patterns** from the Gang of
 8. State
 9. Strategy
 10. Template Method
-11. Visitor
+11. Visitor'
+
+Simple example implementations for each of these patterns is located in the [`behavioralDesignPatterns/`](src/main/java/behavioralDesignPatterns) directory.
+
+Specific demos can be run in IntelliJ via the `<PatternName>Demo.java` file in each pattern's directory. All pattern demos can be run at once via the test file: `RunAllDemos.java`(src/test/java/behavioralDesignPatterns/RunAllDemos.java).
 
 ## Pattern Comparison
 
