@@ -57,7 +57,7 @@ All pattern comparison demos can be run via the JUnit test file: [`PatternCompar
 8. State
 9. Strategy
 10. Template Method
-11. Visitor'
+11. Visitor
 
 Simple example implementations for each of these patterns is located in the [`behavioralDesignPatterns`](src/main/java/behavioralDesignPatterns) directory.
 
